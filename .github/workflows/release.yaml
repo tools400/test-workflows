@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Create Production Release
-        if: ${{ !contains(github.event.inputs.tagName, '.b') }}
+        if: ${{ !contains(github.ref_name, '.b') }}
         uses: softprops/action-gh-release@v2
         with:
           generate_release_notes: true
@@ -32,7 +32,7 @@ jobs:
             docs/files/rdi8.0/iRPGUnit*.zip
 
       - name: Create Beta Release
-        if: ${{ contains(github.event.inputs.tagName, '.b') }}
+        if: ${{ contains(github.ref_name, '.b') }}
         uses: softprops/action-gh-release@v2
         with:
           generate_release_notes: true
