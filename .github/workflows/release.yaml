@@ -23,7 +23,7 @@ jobs:
 
       - name: Debug
         run: |
-            echo "$github.ref_name"
+            echo "${github.ref_name}"
             echo "Beta or release -> ${{ !contains(github.ref_name, '.b') }}"
 
       - name: Create Production Release
