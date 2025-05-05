@@ -18,13 +18,11 @@ jobs:
       contents: write
 
     steps:
-      - name: Debug
+      - name: Checkout
+        uses: actions/checkout@v4
         run: |
             echo "$github.ref_name"
             echo "Beta or release -> ${{ !contains(github.ref_name, '.b') }}"
-      
-      - name: Checkout
-        uses: actions/checkout@v4
 
       - name: Create Production Release
         if: ${{ !contains(github.ref_name, '.b') }}
