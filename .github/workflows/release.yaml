@@ -1,13 +1,12 @@
 name: Release
 
-inputs:
-  tagName:
-    description: 'Tag name'
-    required: true
-    default: 'v1.0.0.r'
-
 on:
   workflow_dispatch:
+    inputs:
+      tagName:
+        description: 'Tag name'
+        required: true
+        default: 'v1.0.0.r'
   push:
     tags:
       - "*"
